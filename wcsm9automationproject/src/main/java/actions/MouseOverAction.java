@@ -20,9 +20,11 @@ driver.findElement(By.id("denyBtn")).click();
 
 //perform mouseHover on watch jwallery
 WebElement watchjwellry = driver.findElement(By.xpath("//a[@title='Watch Jewellery']"));
+//create obj  actions class
 Actions act = new Actions(driver);
 act.moveToElement(watchjwellry).perform();
 driver.findElement(By.xpath("//a[text()='Band']")).click();
+
 Thread.sleep(2000);
 driver.quit();
 	}

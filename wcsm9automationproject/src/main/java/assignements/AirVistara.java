@@ -10,6 +10,7 @@ public class AirVistara {
 	ChromeOptions	co =new ChromeOptions();
 	co.addArguments("--disable-notifications");
 	WebDriver	driver=new ChromeDriver(co);
+	
 	driver.manage().window().maximize();
 	driver.get("https://www.airvistara.com/in/en");
 	driver.findElement(By.id("cookieModalCloseBtn")).click();
