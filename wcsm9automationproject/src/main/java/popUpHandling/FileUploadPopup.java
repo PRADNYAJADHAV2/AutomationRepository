@@ -1,5 +1,7 @@
 package popUpHandling;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -9,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 
 public class FileUploadPopup {
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, IOException {
 		WebDriver	driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(40));
@@ -27,7 +29,18 @@ public class FileUploadPopup {
 		WebElement choosefile = driver.findElement(By.xpath("//input[@name='formCustomInterfaceLogo.logo']"));
 		Actions act = new Actions(driver);
 		act.doubleClick(choosefile).perform();
+		//handle file upload pop up
+		Thread.sleep(2000);
+		File file = new File("./AutoITPgm/fileupload.exe");
+		String absppath = file.getAbsolutePath();
+		Runtime.getRuntime().exec(absppath);
+		Thread.sleep(6000);
 		
+		Runtime.getRuntime().exec(absppath);
+
+		Thread.sleep(6000);
+		driver.quit();
+
 		
 		
 	}
